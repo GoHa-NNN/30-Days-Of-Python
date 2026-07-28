@@ -14,7 +14,7 @@
 
 </div>
 
-[<< 第 3 天](../03_Day_Operators/03_operators.md) | [第 5 天 >>](../05_Day_Lists/05_lists.md)
+[<< 第 3 天](../03_Day_Operators/03_operators_运算符.md) | [第 5 天 >>](../05_Day_Lists/05_lists_列表.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
 

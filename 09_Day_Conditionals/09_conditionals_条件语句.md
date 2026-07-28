@@ -14,7 +14,7 @@
 
 </div>
 
-[<< 第 8 天](../08_Day_Dictionaries/08_dictionaries.md) | [第 10 天 >>](../10_Day_Loops/10_loops.md)
+[<< 第 8 天](../08_Day_Dictionaries/08_dictionaries_字典.md) | [第 10 天 >>](../10_Day_Loops/10_loops_循环.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
 
