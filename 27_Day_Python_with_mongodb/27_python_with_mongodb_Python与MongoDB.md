@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 27 - Python with MongoDB </h1>
+  <h1> 🐍 30 Days Of Python：第 27 天 - Python 与 MongoDB</h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -7,191 +7,191 @@
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
   </a>
 
-<sub>Author:
+<sub>作者（Author）：
 <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Second Edition: July, 2021</small>
+<small>第二版（Second Edition）：2021 年 7 月</small>
 </sub>
 
 </div>
 
-[<< Day 26](../26_Day_Python_web/26_python_web.md) | [Day 28 >>](../28_Day_API/28_API.md)
+[<< 第 26 天](../26_Day_Python_web/26_python_web_Python_Web开发.md) | [第 28 天 >>](../28_Day_API/28_API_API.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
 
-- [📘 Day 27](#-day-27)
-- [Python with MongoDB](#python-with-mongodb)
+- [📘 第 27 天](#-第-27-天)
+- [Python 与 MongoDB](#python-与-mongodb)
   - [MongoDB](#mongodb)
-    - [SQL versus NoSQL](#sql-versus-nosql)
-    - [Getting Connection String(MongoDB URI)](#getting-connection-stringmongodb-uri)
-    - [Connecting Flask application to MongoDB Cluster](#connecting-flask-application-to-mongodb-cluster)
-    - [Creating a database and collection](#creating-a-database-and-collection)
-    - [Inserting many documents to collection](#inserting-many-documents-to-collection)
-    - [MongoDB Find](#mongodb-find)
-    - [Find with Query](#find-with-query)
-    - [Find query with modifier](#find-query-with-modifier)
-    - [Limiting documents](#limiting-documents)
-    - [Find with sort](#find-with-sort)
-    - [Update with query](#update-with-query)
-    - [Delete Document](#delete-document)
-    - [Drop a collection](#drop-a-collection)
-  - [💻 Exercises: Day 27](#-exercises-day-27)
+    - [SQL 与 NoSQL 的对比](#sql-与-nosql-的对比)
+    - [获取连接字符串（MongoDB URI）](#获取连接字符串mongodb-uri)
+    - [将 Flask 应用程序连接到 MongoDB 集群](#将-flask-应用程序连接到-mongodb-集群)
+    - [创建数据库和集合](#创建数据库和集合)
+    - [向集合插入多个文档](#向集合插入多个文档)
+    - [MongoDB 查找（Find）](#mongodb-查找find)
+    - [带查询条件的查找](#带查询条件的查找)
+    - [带修饰符的查询](#带修饰符的查询)
+    - [限制文档数量](#限制文档数量)
+    - [带排序的查找](#带排序的查找)
+    - [带查询条件的更新](#带查询条件的更新)
+    - [删除文档](#删除文档)
+    - [删除集合](#删除集合)
+  - [💻 练习 - 第 27 天](#-练习---第-27-天)
 
-# 📘 Day 27
+# 📘 第 27 天
 
-# Python with MongoDB
+# Python 与 MongoDB
 
-Python is a backend technology and it can be connected with different data base applications. It can be connected to both SQL and noSQL databases. In this section, we connect Python with MongoDB database which is noSQL database. 
+Python 是一种后端（backend）技术，它可以与不同的数据库应用程序连接。它可以连接 SQL 和 NoSQL 数据库。在本节中，我们将 Python 与 MongoDB 数据库（一种 NoSQL 数据库）连接起来。
 
 ## MongoDB
 
-MongoDB is a NoSQL database. MongoDB stores data in a JSON like document which make MongoDB very flexible and scalable. Let us see the different terminologies of SQL and NoSQL databases. The following table will make the difference between SQL versus NoSQL databases.
+MongoDB 是一种 NoSQL 数据库。MongoDB 以类似 JSON 的文档（document）形式存储数据，这使得 MongoDB 非常灵活且可扩展。让我们看看 SQL 和 NoSQL 数据库的不同术语。下表将展示 SQL 与 NoSQL 数据库之间的区别。
 
-### SQL versus NoSQL
+### SQL 与 NoSQL 的对比
 
-![SQL versus NoSQL](../images/mongoDB/sql-vs-nosql.png)
+![SQL 与 NoSQL 对比](../images/mongoDB/sql-vs-nosql.png)
 
-In this section, we will focus on a NoSQL database MongoDB. Lets sign up on [mongoDB](https://www.mongodb.com/) by click on the sign in button then click register on the next page.
+在本节中，我们将重点介绍 NoSQL 数据库 MongoDB。让我们在 [mongoDB](https://www.mongodb.com/) 上注册账号，点击登录按钮，然后在下一页点击注册。
 
-![MongoDB Sign up pages](../images/mongoDB/mongodb-signup-page.png)
+![MongoDB 注册页面](../images/mongoDB/mongodb-signup-page.png)
 
-Complete the fields and click continue
+填写字段并点击继续
 
-![Mongodb register](../images/mongoDB/mongodb-register.png)
+![MongoDB 注册](../images/mongoDB/mongodb-register.png)
 
-Select the free plan
+选择免费套餐（free plan）
 
-![Mongodb free plan](../images/mongoDB/mongodb-free.png)
+![MongoDB 免费套餐](../images/mongoDB/mongodb-free.png)
 
-Choose the proximate free region and give any name for you cluster.
+选择就近的免费区域，并为你的集群（cluster）起一个名字。
 
-![Mongodb cluster name](../images/mongoDB/mongodb-cluster-name.png)
+![MongoDB 集群名称](../images/mongoDB/mongodb-cluster-name.png)
 
-Now, a free sandbox is created
+现在，一个免费的沙盒（sandbox）已创建
 
-![Mongodb sandbox](../images/mongoDB/mongodb-sandbox.png)
+![MongoDB 沙盒](../images/mongoDB/mongodb-sandbox.png)
 
-All local host access
+允许所有本地主机访问
 
-![Mongodb allow ip access](../images/mongoDB/mongodb-allow-ip-access.png)
+![MongoDB 允许 IP 访问](../images/mongoDB/mongodb-allow-ip-access.png)
 
-Add user and password
+添加用户和密码
 
-![Mongodb add user](../images/mongoDB/mongodb-add-user.png)
+![MongoDB 添加用户](../images/mongoDB/mongodb-add-user.png)
 
-Create a mongoDB uri link
+创建 MongoDB URI 链接
 
-![Mongodb create uri](../images/mongoDB/mongodb-create-uri.png)
+![MongoDB 创建 URI](../images/mongoDB/mongodb-create-uri.png)
 
-Select Python 3.6 or above driver
+选择 Python 3.6 或更高版本的驱动程序（driver）
 
-![Mongodb python driver](../images/mongoDB/mongodb-python-driver.png)
+![MongoDB Python 驱动程序](../images/mongoDB/mongodb-python-driver.png)
 
-### Getting Connection String(MongoDB URI)
+### 获取连接字符串（MongoDB URI）
 
-Copy the connection string link and you will get something like this:
+复制连接字符串链接，你将得到类似以下的内容：
 
 ```sh
 mongodb+srv://asabeneh:<password>@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority
 ```
 
-Do not worry about the url, it is a means to connect your application with mongoDB.
-Let us replace the password placeholder with the password you used to add a user.
+不要担心这个 URL，它是将你的应用程序与 mongoDB 连接的一种方式。
+让我们将密码占位符替换为你添加用户时使用的密码。
 
-**Example:**
+**示例：**
 
 ```sh
 mongodb+srv://asabeneh:123123123@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority
 ```
 
-Now, I replaced everything and the password is 123123 and the name of the database is *thirty_days_python*. This is just an example, your password must be stronger than the example password.
+现在，我已经替换了所有内容，密码是 123123，数据库名称是 *thirty_days_python*。这只是一个示例，你的密码必须比示例密码更强。
 
-Python needs a mongoDB driver to access mongoDB database. We will use _pymongo_ with _dnspython_ to connect our application with mongoDB base . Inside your project directory install pymongo and dnspython.
+Python 需要一个 mongoDB 驱动程序来访问 mongoDB 数据库。我们将使用 _pymongo_ 配合 _dnspython_ 来连接我们的应用程序与 mongoDB。在你的项目目录中安装 pymongo 和 dnspython。
 
 ```sh
 pip install pymongo dnspython
 ```
 
-The "dnspython" module must be installed to use mongodb+srv:// URIs. The dnspython is a DNS toolkit for Python. It supports almost all record types.
+要使用 mongodb+srv:// URI，必须安装 "dnspython" 模块。dnspython 是 Python 的 DNS 工具包。它支持几乎所有记录类型。
 
-### Connecting Flask application to MongoDB Cluster
+### 将 Flask 应用程序连接到 MongoDB 集群
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
 print(client.list_database_names())
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 
 ```
 
-When we run the above code we get the default mongoDB databases.
+当我们运行上面的代码时，会得到默认的 mongoDB 数据库。
 
 ```sh
 ['admin', 'local']
 ```
 
-### Creating a database and collection
+### 创建数据库和集合
 
-Let us create a database, database and collection in mongoDB will be created if it doesn't exist. Let's create a data base name *thirty_days_of_python* and *students* collection.
+让我们创建一个数据库，如果数据库和集合在 mongoDB 中不存在，它们将被创建。让我们创建一个名为 *thirty_days_of_python* 的数据库和一个 *students* 集合。
 
-To create a database:
+创建数据库：
 
 ```sh
-db = client.name_of_databse # we can create a database like this or the second way
+db = client.name_of_databse # 我们可以这样创建数据库，或者用第二种方式
 db = client['name_of_database']
 ```
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-# Creating database
+# 创建数据库
 db = client.thirty_days_of_python
-# Creating students collection and inserting a document
+# 创建 students 集合并插入一个文档
 db.students.insert_one({'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'age': 250})
 print(client.list_database_names())
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-After we create a database, we also created a students collection and we used *insert_one()* method to insert a document.
-Now, the database *thirty_days_of_python* and *students* collection have been created and the document has been inserted.
-Check your mongoDB cluster and you will see both the database and the collection. Inside the collection, there will be a document.
+创建数据库后，我们还创建了一个 students 集合并使用 *insert_one()* 方法插入了一个文档。
+现在，数据库 *thirty_days_of_python* 和 *students* 集合已创建，文档也已插入。
+检查你的 mongoDB 集群，你将看到数据库和集合。集合内部会有一个文档。
 
 ```sh
 ['thirty_days_of_python', 'admin', 'local']
 ```
 
-If you see this on the mongoDB cluster, it means you have successfully created a database and a collection.
+如果你在 mongoDB 集群上看到这个，说明你已经成功创建了一个数据库和一个集合。
 
-![Creating database and collection](../images/mongoDB/mongodb-creating_database.png)
+![创建数据库和集合](../images/mongoDB/mongodb-creating_database.png)
 
-If you have seen on the figure, the document has been created with a long id which acts as a primary key. Every time we create a document mongoDB create and unique id for it.
+如果你在图中看到，文档创建时带有一个长 ID，它充当主键（primary key）。每次我们创建一个文档，mongoDB 都会为其创建一个唯一的 ID。
 
-### Inserting many documents to collection
+### 向集合插入多个文档
 
-The *insert_one()*  method inserts one item at a time if we want to insert many documents at once either we use *insert_many()* method or for loop.
-We can use for loop to inset many documents at once.
+*insert_one()* 方法一次插入一个条目，如果我们想一次插入多个文档，可以使用 *insert_many()* 方法或 for 循环。
+我们可以使用 for 循环一次插入多个文档。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
 
@@ -206,34 +206,34 @@ for student in students:
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-### MongoDB Find
+### MongoDB 查找（Find）
 
-The *find()* and *findOne()* methods are common method to find data in a collection in mongoDB database. It is similar to the SELECT statement in a MySQL database.
-Let us use the _find_one()_ method to get a document in a database collection.
+*find()* 和 *findOne()* 方法是在 mongoDB 数据库的集合中查找数据的常用方法。它类似于 MySQL 数据库中的 SELECT 语句。
+让我们使用 _find_one()_ 方法来获取数据库集合中的一个文档。
 
-- \*find_one({"\_id": ObjectId("id"}): Gets the first occurrence if an id is not provided
+- \*find_one({"\_id": ObjectId("id")}): 如果未提供 id，则获取第一个匹配项
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 student = db.students.find_one()
 print(student)
 
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 
@@ -243,24 +243,24 @@ if __name__ == '__main__':
 {'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Asabeneh', 'country': 'Helsinki', 'city': 'Helsinki', 'age': 250}
 ```
 
-The above query returns the first entry but we can target specific document using specific \_id. Let us do one example, use David's id to get David object.
+上面的查询返回第一个条目，但我们可以通过特定的 \_id 来定位特定文档。让我们做一个示例，使用 David 的 id 来获取 David 对象。
 '\_id':ObjectId('5df68a23f106fe2d315bbc8c')
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
-from bson.objectid import ObjectId # id object
+import os # 导入操作系统模块
+from bson.objectid import ObjectId # id 对象
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 student = db.students.find_one({'_id':ObjectId('5df68a23f106fe2d315bbc8c')})
 print(student)
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -269,26 +269,26 @@ if __name__ == '__main__':
 {'_id': ObjectId('5df68a23f106fe2d315bbc8c'), 'name': 'David', 'country': 'UK', 'city': 'London', 'age': 34}
 ```
 
-We have seen, how to use _find_one()_ using the above examples. Let's move one to _find()_
+我们已经通过上面的示例了解了如何使用 _find_one()_。让我们继续学习 _find()_
 
-- _find()_: returns all the occurrence from a collection if we don't pass a query object. The object is pymongo.cursor object.
+- _find()_: 如果我们不传递查询对象，则返回集合中的所有匹配项。该对象是 pymongo.cursor 对象。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 students = db.students.find()
 for student in students:
     print(student)
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -300,24 +300,24 @@ if __name__ == '__main__':
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
 ```
 
-We can specify which fields to return by passing second object in the _find({}, {})_. 0 means not include and 1 means include but we can not mix 0 and 1, except for \_id.
+我们可以通过在 _find({}, {})_ 中传递第二个对象来指定要返回的字段。0 表示不包含，1 表示包含，但我们不能混合使用 0 和 1，\_id 除外。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
-students = db.students.find({}, {"_id":0,  "name": 1, "country":1}) # 0 means not include and 1 means include
+db = client['thirty_days_of_python'] # 访问数据库
+students = db.students.find({}, {"_id":0,  "name": 1, "country":1}) # 0 表示不包含，1 表示包含
 for student in students:
     print(student)
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -329,18 +329,18 @@ if __name__ == '__main__':
 {'name': 'Sami', 'country': 'Finland'}
 ```
 
-### Find with Query
+### 带查询条件的查找
 
-In mongoDB find take a query object. We can pass a query object and we can filter the documents we like to filter out.
+在 mongoDB 中，find 接受一个查询对象。我们可以传递一个查询对象来过滤我们想要过滤的文档。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 query = {
     "country":"Finland"
@@ -353,8 +353,8 @@ for student in students:
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -364,17 +364,17 @@ if __name__ == '__main__':
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
 ```
 
-Query with modifiers
+带修饰符的查询
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 query = {
     "city":"Helsinki"
@@ -386,8 +386,8 @@ for student in students:
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -397,17 +397,17 @@ if __name__ == '__main__':
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
 ```
 
-### Find query with modifier
+### 带修饰符的查询
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 query = {
     "country":"Finland",
     "city":"Helsinki"
@@ -419,8 +419,8 @@ for student in students:
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -430,17 +430,17 @@ if __name__ == '__main__':
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
 ```
 
-Query with modifiers
+带修饰符的查询
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 query = {"age":{"$gt":30}}
 students = db.students.find(query)
 for student in students:
@@ -448,8 +448,8 @@ for student in students:
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -460,14 +460,14 @@ if __name__ == '__main__':
 ```
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 query = {"age":{"$gt":30}}
 students = db.students.find(query)
 for student in students:
@@ -479,35 +479,35 @@ for student in students:
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
 ```
 
-### Limiting documents
+### 限制文档数量
 
-We can limit the number of documents we return using the _limit()_ method.
+我们可以使用 _limit()_ 方法来限制返回的文档数量。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 db.students.find().limit(3)
 ```
 
-### Find with sort
+### 带排序的查找
 
-By default, sort is in ascending order. We can change the sorting to descending order by adding -1 parameter.
+默认情况下，排序为升序（ascending order）。我们可以通过添加 -1 参数将排序改为降序（descending order）。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 students = db.students.find().sort('name')
 for student in students:
     print(student)
@@ -527,13 +527,13 @@ for student in students:
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-Ascending order
+升序
 
 ```sh
 {'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
@@ -542,7 +542,7 @@ Ascending order
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
 ```
 
-Descending order
+降序
 
 ```sh
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
@@ -551,34 +551,34 @@ Descending order
 {'_id': ObjectId('5df68a21f106fe2d315bbc8b'), 'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
 ```
 
-### Update with query
+### 带查询条件的更新
 
-We will use *update_one()* method to update one item. It takes two object one is a query and the second is the new object.
-The first person, Asabeneh got a very implausible age. Let us update Asabeneh's age.
+我们将使用 *update_one()* 方法来更新一个条目。它接受两个对象，一个是查询对象，第二个是新对象。
+第一个人 Asabeneh 的年龄非常不合理。让我们更新 Asabeneh 的年龄。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 query = {'age':250}
 new_value = {'$set':{'age':38}}
 
 db.students.update_one(query, new_value)
-# lets check the result if the age is modified
+# 让我们检查结果，看看年龄是否已修改
 for student in db.students.find():
     print(student)
 
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -590,37 +590,37 @@ if __name__ == '__main__':
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
 ```
 
-When we want to update many documents at once we use *upate_many()* method.
+当我们想要一次更新多个文档时，使用 *upate_many()* 方法。
 
-### Delete Document
+### 删除文档
 
-The method *delete_one()* deletes one document. The *delete_one()* takes a query object parameter. It only removes the first occurrence.
-Let us remove one John from the collection.
+*delete_one()* 方法删除一个文档。*delete_one()* 接受一个查询对象参数。它只移除第一个匹配项。
+让我们从集合中移除一个 John。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 query = {'name':'John'}
 db.students.delete_one(query)
 
 for student in db.students.find():
     print(student)
-# lets check the result if the age is modified
+# 让我们检查结果，看看年龄是否已修改
 for student in db.students.find():
     print(student)
 
 
 app = Flask(__name__)
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # 为了部署，我们使用 environ
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -631,30 +631,30 @@ if __name__ == '__main__':
 {'_id': ObjectId('5df68a23f106fe2d315bbc8e'), 'name': 'Sami', 'country': 'Finland', 'city': 'Helsinki', 'age': 25}
 ```
 
-As you can see John has been removed from the collection.
+如你所见，John 已从集合中移除。
 
-When we want to delete many documents we use *delete_many()* method, it takes a query object. If we pass an empty query object to *delete_many({})* it will delete all the documents in the collection.
+当我们想要删除多个文档时，使用 *delete_many()* 方法，它接受一个查询对象。如果我们将一个空查询对象传递给 *delete_many({})*，它将删除集合中的所有文档。
 
-### Drop a collection
+### 删除集合
 
-Using the _drop()_ method we can delete a collection from a database.
+使用 _drop()_ 方法，我们可以从数据库中删除一个集合。
 
 ```py
-# let's import the flask
+# 导入 flask
 from flask import Flask, render_template
-import os # importing operating system module
+import os # 导入操作系统模块
 import pymongo
 
 MONGODB_URI = 'mongodb+srv://asabeneh:your_password_goes_here@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 db.students.drop()
 ```
 
-Now, we have deleted the students collection from the database.
+现在，我们已经从数据库中删除了 students 集合。
 
-## 💻 Exercises: Day 27
+## 💻 练习 - 第 27 天
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 恭喜（CONGRATULATIONS）！🎉
 
-[<< Day 26](../26_Day_Python_web/26_python_web.md) | [Day 28 >>](../28_Day_API/28_API.md)
+[<< 第 26 天](../26_Day_Python_web/26_python_web_Python_Web开发.md) | [第 28 天 >>](../28_Day_API/28_API_API.md)

@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 25 - Pandas </h1>
+  <h1> 🐍 30 Days Of Python：第 25 天 - Pandas</h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -7,108 +7,108 @@
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
   </a>
 
-  <sub>Author:
+  <sub>作者（Author）：
   <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-  <small>Second Edition: July, 2021</small>
+  <small>第二版（Second Edition）：2021 年 7 月</small>
   </sub>
 
 </div>
 
-[<< Day 24](../24_Day_Statistics/24_statistics.md) | [Day 26 >>](../26_Day_Python_web/26_python_web.md)
+[<< 第 24 天](../24_Day_Statistics/24_statistics_统计学.md) | [第 26 天 >>](../26_Day_Python_web/26_python_web_Python_Web开发.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
 
-- [📘 Day 25](#-day-25)
+- [📘 第 25 天](#-第-25-天)
   - [Pandas](#pandas)
-    - [Installing Pandas](#installing-pandas)
-    - [Importing Pandas](#importing-pandas)
-    - [Creating Pandas Series with Default Index](#creating-pandas-series-with-default-index)
-    - [Creating  Pandas Series with custom index](#creating--pandas-series-with-custom-index)
-    - [Creating Pandas Series from a Dictionary](#creating-pandas-series-from-a-dictionary)
-    - [Creating a Constant Pandas Series](#creating-a-constant-pandas-series)
-    - [Creating a  Pandas Series Using Linspace](#creating-a--pandas-series-using-linspace)
-  - [DataFrames](#dataframes)
-    - [Creating DataFrames from List of Lists](#creating-dataframes-from-list-of-lists)
-    - [Creating DataFrame Using Dictionary](#creating-dataframe-using-dictionary)
-    - [Creating DataFrames from a List of Dictionaries](#creating-dataframes-from-a-list-of-dictionaries)
-  - [Reading CSV File Using Pandas](#reading-csv-file-using-pandas)
-    - [Data Exploration](#data-exploration)
-  - [Modifying a DataFrame](#modifying-a-dataframe)
-    - [Creating a DataFrame](#creating-a-dataframe)
-    - [Adding a New Column](#adding-a-new-column)
-    - [Modifying column values](#modifying-column-values)
-    - [Formatting DataFrame columns](#formatting-dataframe-columns)
-  - [Checking data types of Column values](#checking-data-types-of-column-values)
-    - [Boolean Indexing](#boolean-indexing)
-  - [Exercises: Day 25](#exercises-day-25)
+    - [安装 Pandas](#安装-pandas)
+    - [导入 Pandas](#导入-pandas)
+    - [创建带有默认索引的 Pandas Series](#创建带有默认索引的-pandas-series)
+    - [创建带有自定义索引的 Pandas Series](#创建带有自定义索引的-pandas-series)
+    - [从字典创建 Pandas Series](#从字典创建-pandas-series)
+    - [创建常量 Pandas Series](#创建常量-pandas-series)
+    - [使用 Linspace 创建 Pandas Series](#使用-linspace-创建-pandas-series)
+  - [DataFrame](#dataframe)
+    - [从列表的列表创建 DataFrame](#从列表的列表创建-dataframe)
+    - [使用字典创建 DataFrame](#使用字典创建-dataframe)
+    - [从字典列表创建 DataFrame](#从字典列表创建-dataframe)
+  - [使用 Pandas 读取 CSV 文件](#使用-pandas-读取-csv-文件)
+    - [数据探索](#数据探索)
+  - [修改 DataFrame](#修改-dataframe)
+    - [创建 DataFrame](#创建-dataframe)
+    - [添加新列](#添加新列)
+    - [修改列值](#修改列值)
+    - [格式化 DataFrame 列](#格式化-dataframe-列)
+  - [检查列值的数据类型](#检查列值的数据类型)
+    - [布尔索引](#布尔索引)
+  - [💻 练习 - 第 25 天](#-练习---第-25-天)
 
-# 📘 Day 25
+# 📘 第 25 天
 
 ## Pandas
 
-Pandas is an open source, high-performance, easy-to-use data structures and data analysis tools for the Python programming language.
-Pandas adds data structures and tools designed to work with table-like data which is *Series* and *Data Frames*.
-Pandas provides tools for data manipulation:
+Pandas 是一个开源的、高性能的、易用的 Python 编程语言数据结构和数据分析工具。
+Pandas 添加了旨在处理表格数据的数据结构和工具，即 *Series* 和 *Data Frames*。
+Pandas 提供了数据操作工具：
 
-- reshaping
-- merging
-- sorting
-- slicing
-- aggregation
-- imputation.
-If you are using anaconda, you do not have install pandas.
+- 重塑（reshaping）
+- 合并（merging）
+- 排序（sorting）
+- 切片（slicing）
+- 聚合（aggregation）
+- 插补（imputation）。
+如果你使用的是 anaconda，则不需要安装 pandas。
 
-### Installing Pandas
+### 安装 Pandas
 
-For Mac:
+对于 Mac：
 ```py
 pip install conda
 conda install pandas
 ```
 
-For Windows:
+对于 Windows：
 ```py
 pip install conda
 pip install pandas
 ```
 
-Pandas data structure is based on *Series* and *DataFrames*.
+Pandas 数据结构基于 *Series* 和 *DataFrame*。
 
-A *series* is a *column* and a DataFrame is a *multidimensional table* made up of collection of *series*. In order to create a pandas series we should use numpy to create a one dimensional arrays or a python list.
-Let us see an example of a series:
+*series* 是一个 *列（column）*，而 DataFrame 是由 *series* 集合组成的 *多维表格（multidimensional table）*。为了创建 pandas series，我们应该使用 numpy 创建一维数组或 python 列表。
+让我们看一个 series 的示例：
 
-Names Pandas Series
+名称 Pandas Series
 
 ![pandas series](../images/pandas-series-1.png)
 
-Countries Series
+国家 Series
 
 ![pandas series](../images/pandas-series-2.png)
 
-Cities Series
+城市 Series
 
 ![pandas series](../images/pandas-series-3.png)
 
-As you can see, pandas series is just one column of data. If we want to have multiple columns we use data frames. The example below shows pandas DataFrames.
+如你所见，pandas series 只是一列数据。如果我们想要多列，我们就使用数据框（data frame）。下面的示例展示了 pandas DataFrame。
 
-Let us see, an example of a pandas data frame:
+让我们看一个 pandas 数据框的示例：
 
 ![Pandas data frame](../images/pandas-dataframe-1.png)
 
-Data frame is a collection of rows and columns. Look at the table below; it has many more columns than the example above:
+数据框是行和 columns 的集合。看下面的表格；它比上面的示例有更多的列：
 
 ![Pandas data frame](../images/pandas-dataframe-2.png)
 
-Next, we will see how to import pandas and how to create Series and DataFrames using pandas
+接下来，我们将了解如何导入 pandas 以及如何使用 pandas 创建 Series 和 DataFrame
 
-### Importing Pandas
+### 导入 Pandas
 
 ```python
-import pandas as pd # importing pandas as pd
-import numpy  as np # importing numpy as np
+import pandas as pd # 将 pandas 导入为 pd
+import numpy  as np # 将 numpy 导入为 np
 ```
 
-### Creating Pandas Series with Default Index
+### 创建带有默认索引的 Pandas Series
 
 ```python
 nums = [1, 2, 3, 4,5]
@@ -125,7 +125,7 @@ print(s)
     dtype: int64
 ```
 
-### Creating  Pandas Series with custom index
+### 创建带有自定义索引的 Pandas Series
 
 ```python
 nums = [1, 2, 3, 4, 5]
@@ -155,7 +155,7 @@ print(fruits)
     dtype: object
 ```
 
-### Creating Pandas Series from a Dictionary
+### 从字典创建 Pandas Series
 
 ```python
 dct = {'name':'Asabeneh','country':'Finland','city':'Helsinki'}
@@ -173,7 +173,7 @@ print(s)
     dtype: object
 ```
 
-### Creating a Constant Pandas Series
+### 创建常量 Pandas Series
 
 ```python
 s = pd.Series(10, index = [1, 2, 3])
@@ -187,7 +187,7 @@ print(s)
     dtype: int64
 ```
 
-### Creating a  Pandas Series Using Linspace
+### 使用 Linspace 创建 Pandas Series
 
 ```python
 s = pd.Series(np.linspace(5, 20, 10)) # linspace(starting, end, items)
@@ -208,11 +208,11 @@ print(s)
     dtype: float64
 ```
 
-## DataFrames
+## DataFrame
 
-Pandas data frames can be created in different ways.
+Pandas 数据框可以通过不同的方式创建。
 
-### Creating DataFrames from List of Lists
+### 从列表的列表创建 DataFrame
 
 ```python
 data = [
@@ -255,7 +255,7 @@ print(df)
   </tbody>
 </table>
 
-### Creating DataFrame Using Dictionary
+### 使用字典创建 DataFrame
 
 ```python
 data = {'Name': ['Asabeneh', 'David', 'John'], 'Country':[
@@ -295,7 +295,7 @@ print(df)
   </tbody>
 </table>
 
-### Creating DataFrames from a List of Dictionaries
+### 从字典列表创建 DataFrame
 
 ```python
 data = [
@@ -337,15 +337,15 @@ print(df)
   </tbody>
 </table>
 
-## Reading CSV File Using Pandas
+## 使用 Pandas 读取 CSV 文件
 
-To download the CSV file, what is needed in this example, console/command line is enough:
+要下载本示例所需的 CSV 文件，控制台/命令行就足够了：
 
 ```sh
 curl -O https://raw.githubusercontent.com/Asabeneh/30-Days-Of-Python/master/data/weight-height.csv
 ```
 
-Put the downloaded file in your working directory.
+将下载的文件放在你的工作目录中。
 
 ```python
 import pandas as pd
@@ -354,12 +354,12 @@ df = pd.read_csv('weight-height.csv')
 print(df)
 ```
 
-### Data Exploration
+### 数据探索
 
-Let us read only the first 5 rows using head()
+让我们使用 head() 只读取前 5 行
 
 ```python
-print(df.head()) # give five rows we can increase the number of rows by passing argument to the head() method
+print(df.head()) # 给出五行，我们可以通过向 head() 方法传递参数来增加行数
 ```
 
 
@@ -406,10 +406,10 @@ print(df.head()) # give five rows we can increase the number of rows by passing 
   </tbody>
 </table>
 
-Let us also explore the last recordings of the dataframe using the tail() methods.
+让我们还使用 tail() 方法探索数据框的最后记录。
 
 ```python
-print(df.tail()) # tails give the last five rows, we can increase the rows by passing argument to tail method
+print(df.tail()) # tail 给出最后五行，我们可以通过向 tail 方法传递参数来增加行数
 ```
 
 <table border="1" class="dataframe">
@@ -455,15 +455,15 @@ print(df.tail()) # tails give the last five rows, we can increase the rows by pa
   </tbody>
 </table>
 
-As you can see the csv file has three rows: Gender, Height and Weight. If the DataFrame would have a long rows, it would be hard to know all the columns. Therefore, we should use a method to know the columns.  we do not know the number of rows. Let's use shape method.
+如你所见，csv 文件有三行：Gender、Height 和 Weight。如果 DataFrame 有很多行，将很难知道所有的列。因此，我们应该使用一个方法来了解列。我们不知道行数。让我们使用 shape 方法。
 
 ```python
-print(df.shape) # as you can see 10000 rows and three columns
+print(df.shape) # 如你所见，10000 行和三列
 ```
 
     (10000, 3)
 
-Let us get all the columns using columns.
+让我们使用 columns 获取所有列。
 
 ```python
 print(df.columns)
@@ -471,10 +471,10 @@ print(df.columns)
 
     Index(['Gender', 'Height', 'Weight'], dtype='object')
 
-Now, let us get a specific column using the column key
+现在，让我们使用列键获取特定列
 
 ```python
-heights = df['Height'] # this is now a series
+heights = df['Height'] # 这现在是一个 series
 ```
 
 ```python
@@ -497,7 +497,7 @@ print(heights)
 ```
 
 ```python
-weights = df['Weight'] # this is now a series
+weights = df['Weight'] # 这现在是一个 series
 ```
 
 ```python
@@ -525,10 +525,10 @@ print(len(heights) == len(weights))
 
     True
 
-The describe() method provides a descriptive statistical values of a dataset.
+describe() 方法提供数据集的描述性统计值。
 
 ```python
-print(heights.describe()) # give statistical information about height data
+print(heights.describe()) # 给出关于身高数据的统计信息
 ```
 
 ```sh
@@ -560,7 +560,7 @@ print(weights.describe())
 ```
 
 ```python
-print(df.describe())  # describe can also give statistical information from a dataFrame
+print(df.describe())  # describe 也可以从 DataFrame 给出统计信息
 ```
 
 <table border="1" class="dataframe">
@@ -615,20 +615,20 @@ print(df.describe())  # describe can also give statistical information from a da
   </tbody>
 </table>
 
-Similar to describe(), the info() method also give information about the dataset.
+与 describe() 类似，info() 方法也提供关于数据集的信息。
 
-## Modifying a DataFrame
+## 修改 DataFrame
 
-Modifying a DataFrame:
-    * We can create a new DataFrame
-    * We can create a new column and add it to the DataFrame,
-    * we can remove an existing column from a DataFrame,
-    * we can modify an existing column in a DataFrame,
-    * we can change the data type of column values in the DataFrame
+修改 DataFrame：
+    * 我们可以创建一个新的 DataFrame
+    * 我们可以创建一个新列并将其添加到 DataFrame 中，
+    * 我们可以从 DataFrame 中移除现有列，
+    * 我们可以修改 DataFrame 中的现有列，
+    * 我们可以更改 DataFrame 中列值的数据类型
 
-### Creating a DataFrame
+### 创建 DataFrame
 
-As always, first we import the necessary packages. Now, lets import pandas and numpy, two best friends ever.
+一如既往，首先我们导入必要的包。现在，让我们导入 pandas 和 numpy，两个最好的朋友。
 
 ```python
 import pandas as pd
@@ -672,13 +672,13 @@ print(df)
   </tbody>
 </table>
 
-Adding a column to a DataFrame is like adding a key to a dictionary.
+向 DataFrame 添加列就像向字典添加键一样。
 
-First let's use the previous example to create a DataFrame. After we create the DataFrame, we will start modifying the columns and column values.
+首先让我们使用前面的示例创建 DataFrame。创建 DataFrame 后，我们将开始修改列和列值。
 
-### Adding a New Column
+### 添加新列
 
-Let's add a weight column in the DataFrame
+让我们在 DataFrame 中添加一个 weight 列
 
 ```python
 weights = [74, 78, 69]
@@ -721,7 +721,7 @@ df
   </tbody>
 </table>
 
-Let's add a height column into the DataFrame aswell
+让我们也在 DataFrame 中添加一个 height 列
 
 ```python
 heights = [173, 175, 169]
@@ -768,11 +768,11 @@ print(df)
   </tbody>
 </table>
 
-As you can see in the DataFrame above, we did add new columns, Weight and Height. Let's add one additional column called BMI(Body Mass Index) by calculating their BMI using thier mass and height. BMI is mass divided by height squared (in meters) - Weight/Height * Height.
+如你在上面的 DataFrame 中所见，我们确实添加了新的列 Weight 和 Height。让我们通过计算他们的 BMI（身体质量指数）来添加一个名为 BMI 的额外列。BMI 是质量除以身高（以米为单位）的平方 - Weight/Height * Height。
 
-As you can see, the height is in centimeters, so we shoud change it to meters. Let's modify the height row.
+如你所见，身高是厘米，所以我们应该将其改为米。让我们修改身高行。
 
-### Modifying column values
+### 修改列值
 
 ```python
 df['Height'] = df['Height'] * 0.01
@@ -819,7 +819,7 @@ df
 </table>
 
 ```python
-# Using functions makes our code clean, but you can calculate the bmi without one
+# 使用函数让我们的代码更简洁，但你也可以不用函数计算 bmi
 def calculate_bmi ():
     weights = df['Weight']
     heights = df['Height']
@@ -882,9 +882,9 @@ df
   </tbody>
 </table>
 
-### Formatting DataFrame columns
+### 格式化 DataFrame 列
 
-The BMI column values of the DataFrame are float with many significant digits after decimal. Let's change it to one significant digit after point.
+DataFrame 的 BMI 列值是浮点数，小数点后有许多有效数字。让我们将其改为小数点后一位有效数字。
 
 ```python
 df['BMI'] = round(df['BMI'], 1)
@@ -934,7 +934,7 @@ print(df)
   </tbody>
 </table>
 
-The information in the DataFrame seems not yet complete, let's add birth year and current year columns.
+DataFrame 中的信息似乎还不完整，让我们添加出生年份和当前年份列。
 
 ```python
 birth_year = ['1769', '1985', '1990']
@@ -995,7 +995,7 @@ df
   </tbody>
 </table>
 
-## Checking data types of Column values
+## 检查列值的数据类型
 
 ```python
 print(df.Weight.dtype)
@@ -1006,20 +1006,20 @@ print(df.Weight.dtype)
 ```
 
 ```python
-df['Birth Year'].dtype # it gives string object , we should change this to number
+df['Birth Year'].dtype # 它给出字符串对象，我们应该将其更改为数字
 
 ```
 
 ```python
 df['Birth Year'] = df['Birth Year'].astype('int')
-print(df['Birth Year'].dtype) # let's check the data type now
+print(df['Birth Year'].dtype) # 让我们现在检查数据类型
 ```
 
 ```sh
     dtype('int32')
 ```
 
-Now same for the current year:
+现在对当前年份做同样的操作：
 
 ```python
 df['Current Year'] = df['Current Year'].astype('int')
@@ -1030,7 +1030,7 @@ df['Current Year'].dtype
     dtype('int32')
 ```
 
-Now, the column values of birth year and current year are integers. We can calculate the age.
+现在，出生年份和当前年份的列值是整数。我们可以计算年龄。
 
 ```python
 ages = df['Current Year'] - df['Birth Year']
@@ -1102,20 +1102,20 @@ print(df)
   </tbody>
 </table>
 
-The person in the first row lived so far for 251 years. It is unlikely for someone to live so long. Either it is a typo or the data is cooked. So lets fill that data with average of the columns without including outlier.
+第一行中的人到目前为止活了 251 年。对某人来说活这么长时间是不太可能的。要么是拼写错误，要么是数据被篡改了。所以让我们用不包含异常值的列平均值来填充该数据。
 
 mean = (35 + 30)/ 2
 
 ```python
 mean = (35 + 30)/ 2
-print('Mean: ',mean)	#it is good to add some description to the output, so we know what is what
+print('Mean: ',mean)	# 在输出中添加一些描述是好的，这样我们就知道是什么了
 ```
 
 ```sh
    Mean:  32.5
 ```
 
-### Boolean Indexing
+### 布尔索引
 
 ```python
 print(df[df['Ages'] > 120])
@@ -1200,17 +1200,17 @@ print(df[df['Ages'] < 120])
   </tbody>
 </table>
 
-## Exercises: Day 25
+## 💻 练习 - 第 25 天
 
-1. Read the hacker_news.csv file from data directory
-1. Get the first five rows
-1. Get the last five rows
-1. Get the title column as pandas series
-1. Count the number of rows and columns
-    - Filter the titles which contain python
-    - Filter the titles which contain JavaScript
-    - Explore the data and make sense of it
+1. 从数据目录读取 hacker_news.csv 文件
+1. 获取前五行
+1. 获取最后五行
+1. 将 title 列作为 pandas series 获取
+1. 计算行数和列数
+    - 过滤包含 python 的标题
+    - 过滤包含 JavaScript 的标题
+    - 探索数据并理解它
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 恭喜（CONGRATULATIONS）！🎉
 
-[<< Day 24](../24_Day_Statistics/24_statistics.md) | [Day 26 >>](../26_Day_Python_web/26_python_web.md)
+[<< 第 24 天](../24_Day_Statistics/24_statistics_统计学.md) | [第 26 天 >>](../26_Day_Python_web/26_python_web_Python_Web开发.md)

@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 29 - Building an API </h1>
+  <h1> 🐍 30 Days Of Python：第 29 天 - 构建 API</h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -7,81 +7,80 @@
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
   </a>
 
-<sub>Author:
+<sub>作者（Author）：
 <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small>Second Edition: July, 2021</small>
+<small>第二版（Second Edition）：2021 年 7 月</small>
 </sub>
 
 </div>
 
-[<< Day 28](../28_Day_API/28_API.md) | [Day 29 >>](../30_Day_Conclusions/30_conclusions.md)
+[<< 第 28 天](../28_Day_API/28_API_API.md) | [第 30 天 >>](../30_Day_Conclusions/30_conclusions_总结.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
 
-- [Day 29](#day-29)
-- [Building API](#building-api)
-  - [Structure of an API](#structure-of-an-api)
-  - [Retrieving data using get](#retrieving-data-using-get)
-  - [Getting a document by id](#getting-a-document-by-id)
-  - [Creating data using POST](#creating-data-using-post)
-  - [Updating using PUT](#updating-using-put)
-  - [Deleting a document using Delete](#deleting-a-document-using-delete)
-- [💻 Exercises: Day 29](#-exercises-day-29)
+- [第 29 天](#第-29-天)
+- [构建 API](#构建-api)
+  - [API 的结构](#api-的结构)
+  - [使用 GET 检索数据](#使用-get-检索数据)
+  - [通过 id 获取文档](#通过-id-获取文档)
+  - [使用 POST 创建数据](#使用-post-创建数据)
+  - [使用 PUT 更新](#使用-put-更新)
+  - [使用 DELETE 删除文档](#使用-delete-删除文档)
+- [💻 练习 - 第 29 天](#-练习---第-29-天)
 
-## Day 29
+## 第 29 天
 
-## Building API
+## 构建 API
 
+在本节中，我们将介绍一个使用 HTTP 请求方法来 GET、PUT、POST 和 DELETE 数据的 RESTful API。
 
-In this section, we will cove a RESTful API that uses HTTP request methods to GET, PUT, POST and DELETE data.
+RESTful API 是一种应用程序编程接口（API），它使用 HTTP 请求来 GET、PUT、POST 和 DELETE 数据。在前面的章节中，我们已经学习了 python、flask 和 mongoDB。我们将使用所学的知识，用 python flask 和 mongoDB 构建一个 RESTful API。每个具有 CRUD（Create, Read, Update, Delete，即创建、读取、更新、删除）操作的应用程序都有一个 API 来创建数据、获取数据、更新数据或从数据库中删除数据。
 
-RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data. In the previous sections, we have learned about python, flask and mongoDB. We will use the knowledge we acquire to develop a RESTful API using python flask and mongoDB. Every application which has CRUD(Create, Read, Update, Delete) operation has an API to create data, to get data, to update data or to delete data from database.
+浏览器只能处理 GET 请求。因此，我们需要一个工具来帮助我们处理所有请求方法（GET、POST、PUT、DELETE）。
 
-The browser can handle only get request. Therefore, we have to have a tool which can help us to handle all request methods(GET, POST, PUT, DELETE).
+API 示例
 
-Examples of API
+- 国家 API：https://restcountries.eu/rest/v2/all
+- 猫品种 API：https://api.thecatapi.com/v1/breeds
 
-- Countries API: https://restcountries.eu/rest/v2/all
-- Cats breed API: https://api.thecatapi.com/v1/breeds
-
-[Postman](https://www.getpostman.com/) is a very popular tool when it comes to API development. So, if you like to do this section you need to [download postman](https://www.getpostman.com/). An alternative of Postman is [Insomnia](https://insomnia.rest/download).
+[Postman](https://www.getpostman.com/) 是 API 开发中非常流行的工具。因此，如果你想学习本节内容，需要[下载 postman](https://www.getpostman.com/)。Postman 的替代工具是 [Insomnia](https://insomnia.rest/download)。
 
 ![Postman](../images/postman.png)
 
-### Structure of an API
+### API 的结构
 
-An API end point is a URL which can help to retrieve, create, update or delete a resource. The structure looks like this:
-Example:
+API 端点（end point）是一个 URL，它可以帮助检索、创建、更新或删除资源。结构如下所示：
+示例：
 https://api.twitter.com/1.1/lists/members.json
-Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
-The name of the company name followed by version followed by the purpose of the API.
-The methods:
-HTTP methods & URLs
+返回指定列表的成员。仅当经过身份验证的用户拥有指定列表时，才会显示私有列表成员。
+公司名称后跟版本号，再跟 API 的用途。
+方法：
+HTTP 方法和 URL
 
-The API uses the following HTTP methods for object manipulation:
+API 使用以下 HTTP 方法进行对象操作：
 
 ```sh
-GET        Used for object retrieval
-POST       Used for object creation and object actions
-PUT        Used for object update
-DELETE     Used for object deletion
+GET        用于对象检索
+POST       用于对象创建和对象操作
+PUT        用于对象更新
+DELETE     用于对象删除
 ```
 
-Let us build an API which collects information about 30DaysOfPython students. We will collect the name, country, city, date of birth, skills and bio.
+让我们构建一个收集 30DaysOfPython 学生信息的 API。我们将收集姓名、国家、城市、出生日期、技能（skills）和个人简介（bio）。
 
-To implement this API, we will use:
+为了实现这个 API，我们将使用：
 
 - Postman
 - Python
 - Flask
 - MongoDB
 
-### Retrieving data using get
+### 使用 GET 检索数据
 
-In this step, let us use dummy data and return it as a json. To return it as json, will use json module and Response module.
+在这一步中，让我们使用虚拟数据（dummy data）并将其作为 json 返回。为了将其作为 json 返回，我们将使用 json 模块和 Response 模块。
 
 ```py
-# let's import the flask
+# 导入 flask
 
 from flask import Flask,  Response
 import json
@@ -115,24 +114,24 @@ def students ():
 
 
 if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
+    # 为了部署
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-When you request the http://localhost:5000/api/v1.0/students url on the browser you will get this:
+当你在浏览器中请求 http://localhost:5000/api/v1.0/students 这个 URL 时，你会得到以下结果：
 
-![Get on browser](../images/get_on_browser.png)
+![在浏览器中 GET](../images/get_on_browser.png)
 
-When you request the http://localhost:5000/api/v1.0/students url on the browser you will get this:
+当你在浏览器中请求 http://localhost:5000/api/v1.0/students 这个 URL 时，你会得到以下结果：
 
-![Get on postman](../images/get_on_postman.png)
+![在 Postman 中 GET](../images/get_on_postman.png)
 
-In stead of displaying dummy data let us connect the flask application with MongoDB and get data from mongoDB database.
+让我们不再显示虚拟数据，而是将 flask 应用程序与 MongoDB 连接，从 mongoDB 数据库获取数据。
 
 ```py
-# let's import the flask
+# 导入 flask
 
 from flask import Flask,  Response
 import json
@@ -144,7 +143,7 @@ app = Flask(__name__)
 #
 MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 @app.route('/api/v1.0/students', methods = ['GET'])
 def students ():
@@ -153,13 +152,13 @@ def students ():
 
 
 if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
+    # 为了部署
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-By connecting the flask, we can fetch students collection data from the thirty_days_of_python database.
+通过连接 flask，我们可以从 thirty_days_of_python 数据库中获取 students 集合的数据。
 
 ```sh
 [
@@ -193,13 +192,13 @@ By connecting the flask, we can fetch students collection data from the thirty_d
 ]
 ```
 
-### Getting a document by id
+### 通过 id 获取文档
 
-We can access single document using an id, let's access Asabeneh using his id.
+我们可以通过 id 访问单个文档，让我们通过他的 id 访问 Asabeneh。
 http://localhost:5000/api/v1.0/students/5df68a21f106fe2d315bbc8b
 
 ```py
-# let's import the flask
+# 导入 flask
 
 from flask import Flask,  Response
 import json
@@ -214,7 +213,7 @@ app = Flask(__name__)
 #
 MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 @app.route('/api/v1.0/students', methods = ['GET'])
 def students ():
@@ -226,8 +225,8 @@ def single_student (id):
     return Response(dumps(student), mimetype='application/json')
 
 if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
+    # 为了部署
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
@@ -246,12 +245,12 @@ if __name__ == '__main__':
 ]
 ```
 
-### Creating data using POST
+### 使用 POST 创建数据
 
-We use the POST request method to create data
+我们使用 POST 请求方法来创建数据
 
 ```py
-# let's import the flask
+# 导入 flask
 
 from flask import Flask,  Response
 import json
@@ -267,7 +266,7 @@ app = Flask(__name__)
 #
 MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 @app.route('/api/v1.0/students', methods = ['GET'])
 def students ():
@@ -300,16 +299,16 @@ def create_student ():
     return ;
 def update_student (id):
 if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
+    # 为了部署
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-### Updating using PUT
+### 使用 PUT 更新
 
 ```py
-# let's import the flask
+# 导入 flask
 
 from flask import Flask,  Response
 import json
@@ -325,7 +324,7 @@ app = Flask(__name__)
 #
 MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 @app.route('/api/v1.0/students', methods = ['GET'])
 def students ():
@@ -356,7 +355,7 @@ def create_student ():
     }
     db.students.insert_one(student)
     return
-@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # this decorator create the home route
+@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # 这个装饰器创建主页路由
 def update_student (id):
     query = {"_id":ObjectId(id)}
     name = request.form['name']
@@ -381,16 +380,16 @@ def update_student (id):
     return
 def update_student (id):
 if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
+    # 为了部署
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-### Deleting a document using Delete
+### 使用 DELETE 删除文档
 
 ```py
-# let's import the flask
+# 导入 flask
 
 from flask import Flask,  Response
 import json
@@ -406,7 +405,7 @@ app = Flask(__name__)
 #
 MONGODB_URI='mongodb+srv://asabeneh:your_password@30daysofpython-twxkr.mongodb.net/test?retryWrites=true&w=majority'
 client = pymongo.MongoClient(MONGODB_URI)
-db = client['thirty_days_of_python'] # accessing the database
+db = client['thirty_days_of_python'] # 访问数据库
 
 @app.route('/api/v1.0/students', methods = ['GET'])
 def students ():
@@ -437,7 +436,7 @@ def create_student ():
     }
     db.students.insert_one(student)
     return
-@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # this decorator create the home route
+@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # 这个装饰器创建主页路由
 def update_student (id):
     query = {"_id":ObjectId(id)}
     name = request.form['name']
@@ -460,7 +459,7 @@ def update_student (id):
     db.students.update_one(query, student)
     # return Response(dumps({"result":"a new student has been created"}), mimetype='application/json')
     return
-@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # this decorator create the home route
+@app.route('/api/v1.0/students/<id>', methods = ['PUT']) # 这个装饰器创建主页路由
 def update_student (id):
     query = {"_id":ObjectId(id)}
     name = request.form['name']
@@ -488,16 +487,16 @@ def delete_student (id):
     db.students.delete_one({"_id":ObjectId(id)})
     return
 if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
+    # 为了部署
+    # 让它同时适用于生产环境和开发环境
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-## 💻 Exercises: Day 29
+## 💻 练习 - 第 29 天
 
-1. Implement the above example and develop [this](https://thirtydayofpython-api.herokuapp.com/)
+1. 实现上面的示例并开发[这个](https://thirtydayofpython-api.herokuapp.com/)
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 恭喜（CONGRATULATIONS）！🎉
 
-[<< Day 28](../28_Day_API/28_API.md) | [Day 30 >>](../30_Day_Conclusions/30_conclusions.md)
+[<< 第 28 天](../28_Day_API/28_API_API.md) | [第 30 天 >>](../30_Day_Conclusions/30_conclusions_总结.md)
