@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 15 - Python Type Errors </h1>
+  <h1> 🐍 30 Days Of Python：第 15 天 - Python 类型错误（Python Type Errors）</h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -7,18 +7,18 @@
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
   </a>
 
-  <sub>Author:
+  <sub>作者（Author）：
   <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-  <small> Second Edition: July, 2021</small>
+  <small> 第二版（Second Edition）：2021 年 7 月</small>
   </sub>
 
 </div>
 
-[<< Day 14](../14_Day_Higher_order_functions/14_higher_order_functions.md) | [Day 16 >>](../16_Day_Python_date_time/16_python_datetime.md)
+[<< 第 14 天](../14_Day_Higher_order_functions/14_higher_order_functions_高阶函数.md) | [第 16 天 >>](../16_Day_Python_date_time/16_python_datetime_Python日期时间.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
-- [📘 Day 15](#-day-15)
-  - [Python Error Types](#python-error-types)
+- [📘 第 15 天](#-第-15-天)
+  - [Python 错误类型（Error Types）](#python-错误类型error-types)
     - [SyntaxError](#syntaxerror)
     - [NameError](#nameerror)
     - [IndexError](#indexerror)
@@ -29,19 +29,19 @@
     - [ImportError](#importerror)
     - [ValueError](#valueerror)
     - [ZeroDivisionError](#zerodivisionerror)
-  - [💻 Exercises: Day 15](#-exercises-day-15)
+  - [💻 练习：第 15 天](#-练习第-15-天)
 
-# 📘 Day 15
+# 📘 第 15 天
 
-## Python Error Types
+## Python 错误类型（Error Types）
 
-When we write code it is common that we make a typo or some other common error. If our code fails to run, the Python interpreter will display a message, containing feedback with information on where the problem occurs and the type of an error. It will also sometimes gives us suggestions on a possible fix. Understanding different types of errors in programming languages will help us to debug our code quickly and also it makes us better at what we do.
+当我们编写代码时，出现拼写错误或其他常见错误是很常见的。如果我们的代码无法运行，Python 解释器将显示一条消息，其中包含有关问题发生位置和错误类型的反馈信息。它有时也会给我们提供可能的修复建议。了解编程语言中不同类型的错误将帮助我们快速调试代码，也让我们在所做的事情上变得更好。
 
-Let us see the most common error types one by one. First let us open our Python interactive shell. Go to your you computer terminal and write 'python'. The python interactive shell will be opened.
+让我们逐一看看最常见的错误类型。首先让我们打开 Python 交互式解释器（interactive shell）。转到你的电脑终端并输入 'python'。Python 交互式解释器将被打开。
 
 ### SyntaxError
 
-**Example 1: SyntaxError**
+**示例 1：SyntaxError**
 
 ```py
 asabeneh@Asabeneh:~$ python
@@ -56,7 +56,7 @@ SyntaxError: Missing parentheses in call to 'print'. Did you mean print('hello w
 >>>
 ```
 
-As you can see we made a syntax error because we forgot to enclose the string with parenthesis and Python already suggests the solution. Let us fix it.
+正如你所看到的，我们犯了一个语法错误（SyntaxError），因为我们忘记用括号括起字符串，Python 已经给出了解决建议。让我们修复它。
 
 ```py
 asabeneh@Asabeneh:~$ python
@@ -73,15 +73,15 @@ hello world
 >>>
 ```
 
-The error was a _SyntaxError_. After the fix our code was executed without a hitch. Let see more error types.
+错误是一个 _SyntaxError_。修复后，我们的代码顺利执行了。让我们看看更多错误类型。
 
 ### NameError
 
-**Example 1: NameError**
+**示例 1：NameError**
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> print(age)
@@ -91,11 +91,11 @@ NameError: name 'age' is not defined
 >>>
 ```
 
-As you can see from the message above, name age is not defined. Yes, it is true that we did not define an age variable but we were trying to print it out as if we had had declared it. Now, lets fix this by declaring it and assigning with a value.
+正如你从上面的消息中看到的，名称 age 未定义。是的，我们确实没有定义 age 变量，但我们试图打印它，就好像已经声明了它一样。现在，让我们通过声明它并赋值来修复这个问题。
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> print(age)
@@ -108,15 +108,15 @@ NameError: name 'age' is not defined
 >>>
 ```
 
-The type of error was a _NameError_. We debugged the error by defining the variable name.
+错误类型是 _NameError_。我们通过定义变量名来调试了这个错误。
 
 ### IndexError
 
-**Example 1: IndexError**
+**示例 1：IndexError**
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> numbers = [1, 2, 3, 4, 5]
@@ -127,15 +127,15 @@ IndexError: list index out of range
 >>>
 ```
 
-In the example above, Python raised an _IndexError_, because the list has only indexes from 0 to 4 , so it was out of range.
+在上面的例子中，Python 抛出了一个 _IndexError_，因为列表只有从 0 到 4 的索引，所以它超出了范围。
 
 ### ModuleNotFoundError
 
-**Example 1: ModuleNotFoundError**
+**示例 1：ModuleNotFoundError**
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import maths
@@ -145,11 +145,11 @@ ModuleNotFoundError: No module named 'maths'
 >>>
 ```
 
-In the example above, I added an extra s to math deliberately and _ModuleNotFoundError_ was raised. Lets fix it by removing the extra s from math.
+在上面的例子中，我故意在 math 后面加了一个多余的 s，抛出了 _ModuleNotFoundError_。让我们通过移除 math 后面多余的 s 来修复它。
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import maths
@@ -160,15 +160,15 @@ ModuleNotFoundError: No module named 'maths'
 >>>
 ```
 
-We fixed it, so let's use some of the functions from the math module.
+我们修复了它，让我们使用 math 模块中的一些函数。
 
 ### AttributeError
 
-**Example 1: AttributeError**
+**示例 1：AttributeError**
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import maths
@@ -183,11 +183,11 @@ AttributeError: module 'math' has no attribute 'PI'
 >>>
 ```
 
-As you can see, I made a mistake again! Instead of pi, I tried to call a PI constant from maths module. It raised an attribute error, it means, that the attribute does not exist in the module. Lets fix it by changing from PI to pi.
+正如你所看到的，我又犯了一个错误！我试图从 math 模块调用 PI 常量，而不是 pi。它抛出了一个属性错误（AttributeError），这意味着该属性在模块中不存在。让我们通过将 PI 改为 pi 来修复它。
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import maths
@@ -204,15 +204,15 @@ AttributeError: module 'math' has no attribute 'PI'
 >>>
 ```
 
-Now, when we call pi from the math module we got the result.
+现在，当我们从 math 模块调用 pi 时，我们得到了结果。
 
 ### KeyError
 
-**Example 1: KeyError**
+**示例 1：KeyError**
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> users = {'name':'Asab', 'age':250, 'country':'Finland'}
@@ -225,11 +225,11 @@ KeyError: 'county'
 >>>
 ```
 
-As you can see, there was a typo in the key used to get the dictionary value. so, this is a key error and the fix is quite straight forward. Let's do this!
+正如你所看到的，用于获取字典值的键有拼写错误。所以，这是一个键错误（KeyError），修复方法相当直接。让我们来做吧！
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> user = {'name':'Asab', 'age':250, 'country':'Finland'}
@@ -244,15 +244,15 @@ KeyError: 'county'
 >>>
 ```
 
-We debugged the error, our code ran and we got the value.
+我们调试了错误，代码运行了，我们得到了值。
 
 ### TypeError
 
-**Example 1: TypeError**
+**示例 1：TypeError**
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 4 + '3'
@@ -262,11 +262,11 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 >>>
 ```
 
-In the example above, a TypeError is raised because we cannot add a number to a string. First solution would be to convert the string to int or float. Another solution would be converting the number to a string (the result then would be '43'). Let us follow the first fix.
+在上面的例子中，抛出了 TypeError，因为我们不能将数字和字符串相加。第一个解决方案是将字符串转换为 int 或 float。另一个解决方案是将数字转换为字符串（结果将是 '43'）。让我们按照第一个修复方案来做。
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 4 + '3'
@@ -280,15 +280,15 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 >>>
 ```
 
-Error removed and we got the result we expected.
+错误被移除，我们得到了预期的结果。
 
 ### ImportError
 
-**Example 1: TypeError**
+**示例 1：ImportError**
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from math import power
@@ -298,11 +298,11 @@ ImportError: cannot import name 'power' from 'math'
 >>>
 ```
 
-There is no function called power in the math module, it goes with a different name: _pow_. Let's correct it:
+math 模块中没有名为 power 的函数，它的名字是 _pow_。让我们纠正它：
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> from math import power
@@ -319,7 +319,7 @@ ImportError: cannot import name 'power' from 'math'
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> int('12a')
@@ -329,13 +329,13 @@ ValueError: invalid literal for int() with base 10: '12a'
 >>>
 ```
 
-In this case we cannot change the given string to a number, because of the 'a' letter in it.
+在这种情况下，我们无法将给定的字符串转换为数字，因为其中包含字母 'a'。
 
 ### ZeroDivisionError
 
 ```py
 asabeneh@Asabeneh:~$ python
-Python 3.9.6 (default, Jun 28 2021, 15:26:21)
+Python 3.9.6 (default, Jun 28, 2021, 15:26:21)
 [Clang 11.0.0 (clang-1100.0.33.8)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 1/0
@@ -345,17 +345,17 @@ ZeroDivisionError: division by zero
 >>>
 ```
 
-We cannot divide a number by zero.
+我们不能将数字除以零。
 
-We have covered some of the python error types, if you want to check more about it check the python documentation about python error types.
-If you are good at reading the error types, then you will be able to fix your bugs fast and you will also become a better programmer.
+我们已经涵盖了一些 Python 错误类型，如果你想了解更多，请查看 Python 文档中关于 Python 错误类型的内容。
+如果你擅长阅读错误类型，那么你将能够快速修复 bug，你也会成为一名更好的程序员。
 
-🌕 You are excelling. You made it to half way to your way to greatness. Now do some exercises for your brain and for your muscle.
+🌕 你正在脱颖而出。你已经走在了通往伟大的半路上。现在为你的大脑和肌肉做一些练习吧。
 
-## 💻 Exercises: Day 15
+## 💻 练习：第 15 天
 
-1. Open you python interactive shell and try all the examples covered in this section.
+1. 打开你的 Python 交互式解释器并尝试本节涵盖的所有示例。
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 恭喜（CONGRATULATIONS）！🎉
 
-[<< Day 14](../14_Day_Higher_order_functions/14_higher_order_functions.md) | [Day 16 >>](../16_Day_Python_date_time/16_python_datetime.md)
+[<< 第 14 天](../14_Day_Higher_order_functions/14_higher_order_functions_高阶函数.md) | [第 16 天 >>](../16_Day_Python_date_time/16_python_datetime_Python日期时间.md)

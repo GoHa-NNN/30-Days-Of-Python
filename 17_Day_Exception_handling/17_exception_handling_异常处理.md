@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 17 - Exception Handling </h1>
+  <h1> 🐍 30 Days Of Python：第 17 天 - 异常处理（Exception Handling）</h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -7,48 +7,49 @@
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
   </a>
 
-  <sub>Author:
-  <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-  <small> Second Edition: July, 2021</small>
-  </sub>
+<sub>作者（Author）：
+<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
+<small>第二版（Second Edition）：2021 年 7 月</small>
+</sub>
+
 </div>
 
-[<< Day 16](../16_Day_Python_date_time/16_python_datetime.md) | [Day 18 >>](../18_Day_Regular_expressions/18_regular_expressions.md)
+[<< 第 16 天](../16_Day_Python_date_time/16_python_datetime_Python日期时间.md) | [第 18 天 >>](../18_Day_Regular_expressions/18_regular_expressions_正则表达式.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
 
-- [📘 Day 17](#-day-17)
-  - [Exception Handling](#exception-handling)
-  - [Packing and Unpacking Arguments in Python](#packing-and-unpacking-arguments-in-python)
-    - [Unpacking](#unpacking)
-      - [Unpacking Lists](#unpacking-lists)
-      - [Unpacking Dictionaries](#unpacking-dictionaries)
-    - [Packing](#packing)
-    - [Packing Lists](#packing-lists)
-      - [Packing Dictionaries](#packing-dictionaries)
-  - [Spreading in Python](#spreading-in-python)
-  - [Enumerate](#enumerate)
-  - [Zip](#zip)
-  - [Exercises: Day 17](#exercises-day-17)
+- [📘 第 17 天](#-第-17-天)
+  - [异常处理](#异常处理)
+  - [在 Python 中打包和解包参数](#在-python-中打包和解包参数)
+    - [解包](#解包)
+      - [解包列表](#解包列表)
+      - [解包字典](#解包字典)
+    - [打包](#打包)
+    - [打包列表](#打包列表)
+      - [打包字典](#打包字典)
+  - [在 Python 中展开](#在-python-中展开)
+  - [枚举（Enumerate）](#枚举enumerate)
+  - [压缩（Zip）](#压缩zip)
+  - [💻 练习 - 第 17 天](#-练习---第-17-天)
 
-# 📘 Day 17
+# 📘 第 17 天
 
-## Exception Handling
+## 异常处理
 
-Python uses _try_ and _except_ to handle errors gracefully. A graceful exit (or graceful handling) of errors is a simple programming idiom - a program detects a serious error condition and "exits gracefully", in a controlled manner as a result. Often the program prints a descriptive error message to a terminal or log as part of the graceful exit, this makes our application more robust. The cause of an exception is often external to the program itself. An example of exceptions could be an incorrect input, wrong file name, unable to find a file, a malfunctioning IO device. Graceful handling of errors prevents our applications from crashing.
+Python 使用 _try_ 和 _except_ 来优雅地处理错误。错误的优雅退出（graceful exit）或优雅处理是一种简单的编程习惯用法——程序检测到严重的错误条件后，以受控的方式"优雅退出"。通常，程序会在终端或日志中打印描述性错误信息作为优雅退出的一部分，这使得我们的应用程序更加健壮（robust）。异常（exception）的原因通常在程序本身之外。异常的示例可能包括：输入错误、文件名错误、找不到文件、IO 设备故障。错误的优雅处理可以防止我们的应用程序崩溃。
 
-We have covered the different Python _error_ types in the previous section. If we use _try_ and _except_ in our program, then it will not raise errors in those blocks.
+我们已经在上一节中介绍了不同的 Python _error_（错误）类型。如果我们在程序中使用 _try_ 和 _except_，那么这些代码块中就不会抛出错误。
 
 ![Try and Except](../images/try_except.png)
 
 ```py
 try:
-    code in this block if things go well
+    如果一切顺利，运行此代码块中的代码
 except:
-    code in this block run if things go wrong
+    如果出现问题，运行此代码块中的代码
 ```
 
-**Example:**
+**示例（Example）：**
 
 ```py
 try:
@@ -57,9 +58,9 @@ except:
     print('Something went wrong')
 ```
 
-In the example above the second operand is a string. We could change it to float or int to add it with the number to make it work. But without any changes, the second block, _except_, will be executed.
+在上面的示例中，第二个操作数是字符串（string）。我们可以将其改为 float 或 int 来与数字相加使其正常工作。但如果不做任何更改，第二个代码块 _except_ 将会被执行。
 
-**Example:**
+**示例（Example）：**
 
 ```py
 try:
@@ -75,9 +76,9 @@ except:
 Something went wrong
 ```
 
-In the above example, the exception block will run and we do not know exactly the problem. To analyze the problem, we can use the different error types with except.
+在上面的示例中，异常代码块会运行，但我们并不确切知道问题所在。为了分析问题，我们可以将不同的错误类型与 except 配合使用。
 
-In the following example, it will handle the error and will also tell us the kind of error raised.
+在下面的示例中，它将处理错误并告诉我们抛出了哪种错误。
 
 ```py
 try:
@@ -99,8 +100,8 @@ Year you born:1920
 Type error occured
 ```
 
-In the code above the output is going to be _TypeError_.
-Now, let's add an additional block:
+在上面的代码中，输出将是 _TypeError_。
+现在，让我们添加一个额外的代码块：
 
 ```py
 try:
@@ -128,7 +129,7 @@ I usually run with the try block
 I alway run.
 ```
 
-It is also shorten the above code as follows:
+也可以将上面的代码缩写如下：
 
 ```py
 try:
@@ -141,18 +142,18 @@ except Exception as e:
 
 ```
 
-## Packing and Unpacking Arguments in Python
+## 在 Python 中打包和解包参数
 
-We use two operators:
+我们使用两个运算符（operator）：
 
-- \* for tuples
-- \*\* for dictionaries
+- \* 用于元组（tuple）
+- \*\* 用于字典（dict）
 
-Let us take as an example below. It takes only arguments but we have list. We can unpack the list and changes to argument.
+让我们以下面的例子来说明。它只接受参数（argument），但我们有一个列表。我们可以将列表解包并转换为参数。
 
-### Unpacking
+### 解包
 
-#### Unpacking Lists
+#### 解包列表
 
 ```py
 def sum_of_five_nums(a, b, c, d, e):
@@ -162,7 +163,7 @@ lst = [1, 2, 3, 4, 5]
 print(sum_of_five_nums(lst)) # TypeError: sum_of_five_nums() missing 4 required positional arguments: 'b', 'c', 'd', and 'e'
 ```
 
-When we run the this code, it raises an error, because this function takes numbers (not a list) as arguments. Let us unpack/destructure the list.
+当我们运行这段代码时，它会抛出一个错误，因为这个函数接受数字（而不是列表）作为参数。让我们解包/解构（destructure）这个列表。
 
 ```py
 def sum_of_five_nums(a, b, c, d, e):
@@ -172,18 +173,18 @@ lst = [1, 2, 3, 4, 5]
 print(sum_of_five_nums(*lst))  # 15
 ```
 
-We can also use unpacking in the range built-in function that expects a start and an end.
+我们也可以对 range 内置函数使用解包，该函数期望接收起始值和结束值。
 
 ```py
-numbers = range(2, 7)  # normal call with separate arguments
+numbers = range(2, 7)  # 使用独立的参数进行常规调用
 print(list(numbers)) # [2, 3, 4, 5, 6]
 args = [2, 7]
-numbers = range(*args)  # call with arguments unpacked from a list
+numbers = range(*args)  # 使用从列表中解包的参数进行调用
 print(numbers)      # [2, 3, 4, 5,6]
 
 ```
 
-A list or a tuple can also be unpacked like this:
+列表或元组也可以这样解包：
 
 ```py
 countries = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
@@ -194,7 +195,7 @@ one, *middle, last = numbers
 print(one, middle, last)      #  1 [2, 3, 4, 5, 6] 7
 ```
 
-#### Unpacking Dictionaries
+#### 解包字典
 
 ```py
 def unpacking_person_info(name, country, city, age):
@@ -203,11 +204,11 @@ dct = {'name':'Asabeneh', 'country':'Finland', 'city':'Helsinki', 'age':250}
 print(unpacking_person_info(**dct)) # Asabeneh lives in Finland, Helsinki. He is 250 years old.
 ```
 
-### Packing
+### 打包
 
-Sometimes we never know how many arguments need to be passed to a python function. We can use the packing method to allow our function to take unlimited number or arbitrary number of arguments.
+有时我们永远不知道需要向 Python 函数传递多少个参数。我们可以使用打包（packing）方法，让我们的函数接受无限数量或任意数量的参数。
 
-### Packing Lists
+### 打包列表
 
 ```py
 def sum_all(*args):
@@ -219,13 +220,13 @@ print(sum_all(1, 2, 3))             # 6
 print(sum_all(1, 2, 3, 4, 5, 6, 7)) # 28
 ```
 
-#### Packing Dictionaries
+#### 打包字典
 
 ```py
 def packing_person_info(**kwargs):
-    # check the type of kwargs and it is a dict type
+    # 检查 kwargs 的类型，它是 dict 类型
     # print(type(kwargs))
-    # Printing dictionary items
+    # 打印字典项
     for key in kwargs:
         print(f"{key} = {kwargs[key]}")
     return kwargs
@@ -242,9 +243,9 @@ age = 250
 {'name': 'Asabeneh', 'country': 'Finland', 'city': 'Helsinki', 'age': 250}
 ```
 
-## Spreading in Python
+## 在 Python 中展开
 
-Like in JavaScript, spreading is possible in Python. Let us check it in an example below:
+与 JavaScript 类似，在 Python 中也可以进行展开（spreading）。让我们通过下面的例子来验证：
 
 ```py
 lst_one = [1, 2, 3]
@@ -257,9 +258,9 @@ nordic_countries = [*country_lst_one, *country_lst_two]
 print(nordic_countries)  # ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
 ```
 
-## Enumerate
+## 枚举（Enumerate）
 
-If we are interested in an index of a list, we use _enumerate_ built-in function to get the index of each item in the list.
+如果我们对列表的索引感兴趣，可以使用 _enumerate_ 内置函数来获取列表中每个项的索引。
 
 ```py
 for index, item in enumerate([20, 30, 40]):
@@ -277,9 +278,9 @@ for index, i in enumerate(countries):
 The country Finland has been found at index 0.
 ```
 
-## Zip
+## 压缩（Zip）
 
-Sometimes we would like to combine lists when looping through them. See the example below:
+有时我们希望在遍历列表时将它们组合在一起。请看下面的示例：
 
 ```py
 fruits = ['banana', 'orange', 'mango', 'lemon', 'lime']                    
@@ -295,13 +296,12 @@ print(fruits_and_veges)
 [{'fruit': 'banana', 'veg': 'Tomato'}, {'fruit': 'orange', 'veg': 'Potato'}, {'fruit': 'mango', 'veg': 'Cabbage'}, {'fruit': 'lemon', 'veg': 'Onion'}, {'fruit': 'lime', 'veg': 'Carrot'}]
 ```
 
-🌕 You are determined. You are 17 steps a head to your way to greatness. Now do some exercises for your brain and muscles.
+🌕 你意志坚定。在通往伟大的道路上，你已经领先了 17 步。现在为你的大脑和肌肉做一些练习吧。
 
-## Exercises: Day 17
+## 💻 练习 - 第 17 天
 
-1. names = ['Finland', 'Sweden', 'Norway','Denmark','Iceland', 'Estonia','Russia']. Unpack the first five countries and store them in a variable nordic_countries, store Estonia and Russia in es, and ru respectively.
+1. names = ['Finland', 'Sweden', 'Norway','Denmark','Iceland', 'Estonia','Russia']。解包前五个国家并将它们存储在变量 nordic_countries 中，将 Estonia 和 Russia 分别存储在 es 和 ru 中。
 
+🎉 恭喜（CONGRATULATIONS）！🎉
 
-🎉 CONGRATULATIONS ! 🎉
-
-[<< Day 16](../16_Day_Python_date_time/16_python_datetime.md) | [Day 18 >>](../18_Day_Regular_expressions/18_regular_expressions.md)
+[<< 第 16 天](../16_Day_Python_date_time/16_python_datetime_Python日期时间.md) | [第 18 天 >>](../18_Day_Regular_expressions/18_regular_expressions_正则表达式.md)

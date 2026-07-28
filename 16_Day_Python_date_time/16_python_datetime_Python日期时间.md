@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 16 - Python Date time </h1>
+  <h1> 🐍 30 Days Of Python：第 16 天 - Python 日期时间（Python Date time）</h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -7,30 +7,31 @@
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
   </a>
 
-  <sub>Author:
-  <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-  <small>Second Edition: July, 2021</small>
-  </sub>
+<sub>作者（Author）：
+<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
+<small>第二版（Second Edition）：2021 年 7 月</small>
+</sub>
+
 </div>
 
-[<< Day 15](../15_Day_Python_type_errors/15_python_type_errors.md) | [Day 17 >>](../17_Day_Exception_handling/17_exception_handling.md)
+[<< 第 15 天](../15_Day_Python_type_errors/15_python_type_errors_Python类型错误.md) | [第 17 天 >>](../17_Day_Exception_handling/17_exception_handling_异常处理.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
-- [📘 Day 16](#-day-16)
+- [📘 第 16 天](#-第-16-天)
   - [Python *datetime*](#python-datetime)
-    - [Getting *datetime* Information](#getting-datetime-information)
-    - [Formatting Date Output Using *strftime*](#formatting-date-output-using-strftime)
-    - [String to Time Using *strptime*](#string-to-time-using-strptime)
-    - [Using *date* from *datetime*](#using-date-from-datetime)
-    - [Time Objects to Represent Time](#time-objects-to-represent-time)
-    - [Difference Between Two Points in Time Using](#difference-between-two-points-in-time-using)
-    - [Difference Between Two Points in Time Using *timedelta*](#difference-between-two-points-in-time-using-timedelta)
-  - [💻 Exercises: Day 16](#-exercises-day-16)
-# 📘 Day 16
+    - [获取 *datetime* 信息](#获取-datetime-信息)
+    - [使用 *strftime* 格式化日期输出](#使用-strftime-格式化日期输出)
+    - [使用 *strptime* 将字符串转换为时间](#使用-strptime-将字符串转换为时间)
+    - [使用 *datetime* 中的 *date*](#使用-datetime-中的-date)
+    - [用时间对象表示时间](#用时间对象表示时间)
+    - [计算两个时间点之间的差值](#计算两个时间点之间的差值)
+    - [使用 *timedelta* 计算两个时间点之间的差值](#使用-timedelta-计算两个时间点之间的差值)
+  - [💻 练习 - 第 16 天](#-练习---第-16-天)
+# 📘 第 16 天
 
 ## Python *datetime*
 
-Python has got _datetime_ module to handle date and time.
+Python 拥有 _datetime_ 模块来处理日期和时间。
 
 ```py
 import datetime
@@ -38,9 +39,9 @@ print(dir(datetime))
 ['MAXYEAR', 'MINYEAR', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'date', 'datetime', 'datetime_CAPI', 'sys', 'time', 'timedelta', 'timezone', 'tzinfo']
 ```
 
-With dir or help built-in commands it is possible to know the available functions in a certain module. As you can see, in the datetime module there are many functions, but we will focus on _date_, _datetime_, _time_ and _timedelta_. Let se see them one by one.
+通过 dir 或 help 内置命令（built-in command），可以了解某个模块中可用的函数。正如你所见，datetime 模块中有许多函数，但我们将重点关注 _date_、_datetime_、_time_ 和 _timedelta_。让我们逐一了解它们。
 
-### Getting *datetime* Information
+### 获取 *datetime* 信息
 
 ```py
 from datetime import datetime
@@ -58,9 +59,9 @@ print('timestamp', timestamp)
 print(f'{day}/{month}/{year}, {hour}:{minute}')  # 8/7/2021, 7:38
 ```
 
-Timestamp or Unix timestamp is the number of seconds elapsed from 1st of January 1970 UTC.
+时间戳（Timestamp）或 Unix 时间戳是指自 1970 年 1 月 1 日 UTC 起经过的秒数。
 
-### Formatting Date Output Using *strftime*
+### 使用 *strftime* 格式化日期输出
 
 ```py
 from datetime import datetime
@@ -77,19 +78,19 @@ print(f'{day}/{month}/{year}, {hour}:{minute}')  # 1/1/2020, 0:0
 
 ```
 
-Formatting date time using *strftime* method and the documentation can be found [here](https://strftime.org/).
+使用 *strftime* 方法格式化日期时间，相关文档可参考[这里](https://strftime.org/)。
 
 ```py
 from datetime import datetime
-# current date and time
+# 当前日期和时间
 now = datetime.now()
 t = now.strftime("%H:%M:%S")
 print("time:", t)           # time: 18:21:40
 time_one = now.strftime("%m/%d/%Y, %H:%M:%S")
-# mm/dd/YY H:M:S format
+# mm/dd/YY H:M:S 格式
 print("time one:", time_one)        # time one: 06/28/2022, 18:21:40
 time_two = now.strftime("%d/%m/%Y, %H:%M:%S")
-# dd/mm/YY H:M:S format
+# dd/mm/YY H:M:S 格式
 print("time two:", time_two)        # time two: 28/06/2022, 18:21:40
 ```
 
@@ -99,12 +100,13 @@ time one: 12/05/2019, 01:05:01
 time two: 05/12/2019, 01:05:01
 ```
 
-Here are all the _strftime_ symbols we use to format time. An example of all the formats for this module.
+以下是用于格式化时间的所有 _strftime_ 符号。本模块所有格式的示例。
 
 ![strftime](../images/strftime.png)
 
-### String to Time Using *strptime*
-Here is a [documentation](https://www.programiz.com/python-programming/datetime/strptime) hat helps to understand the format. 
+### 使用 *strptime* 将字符串转换为时间
+
+这是一个帮助理解格式的[文档](https://www.programiz.com/python-programming/datetime/strptime)。
 
 ```py
 from datetime import datetime
@@ -119,21 +121,21 @@ date_string = 5 December, 2019
 date_object = 2019-12-05 00:00:00
 ```
 
-### Using *date* from *datetime*
+### 使用 *datetime* 中的 *date*
 
 ```py
 from datetime import date
 d = date(2020, 1, 1)
 print(d)        # 2020-01-01
 print('Current date:', d.today())    # 2019-12-05
-# date object of today's date
+# 今日日期的 date 对象
 today = date.today()
 print("Current year:", today.year)   # 2019
 print("Current month:", today.month) # 12
 print("Current day:", today.day)     # 5
 ```
 
-### Time Objects to Represent Time
+### 用时间对象表示时间
 
 ```py
 from datetime import time
@@ -151,20 +153,20 @@ d = time(10, 30, 50, 200555)
 print("d =", d)     # d = 10:30:50.200555
 ```
 
-output  
+输出（output）  
 a = 00:00:00  
 b = 10:30:50  
 c = 10:30:50  
 d = 10:30:50.200555
 
-### Difference Between Two Points in Time Using
+### 计算两个时间点之间的差值
 
 ```py
 from datetime import date, datetime
 today = date(year=2019, month=12, day=5)
 new_year = date(year=2020, month=1, day=1)
 time_left_for_newyear = new_year - today
-# Time left for new year:  27 days, 0:00:00
+# 距离新年还有：27 天, 0:00:00
 print('Time left for new year: ', time_left_for_newyear)  # Time left for new year:  27 days, 0:00:00
 
 t1 = datetime(year = 2019, month = 12, day = 5, hour = 0, minute = 59, second = 0)
@@ -173,7 +175,7 @@ diff = t2 - t1
 print('Time left for new year:', diff) # Time left for new year: 26 days, 23: 01: 00
 ```
 
-### Difference Between Two Points in Time Using *timedelta*
+### 使用 *timedelta* 计算两个时间点之间的差值
 
 ```py
 from datetime import timedelta
@@ -189,20 +191,20 @@ print("t3 =", t3)
     t3 = 86 days, 22:56:50
 ```
 
-🌕 You are an extraordinary. You are 16 steps a head to your way to greatness. Now do some exercises for your brain and muscles.
+🌕 你是一个非凡的人。在通往伟大的道路上，你已经领先了 16 步。现在为你的大脑和肌肉做一些练习吧。
 
-## 💻 Exercises: Day 16
+## 💻 练习 - 第 16 天
 
-1. Get the current day, month, year, hour, minute and timestamp from datetime module
-2. Format the current date using this format: "%m/%d/%Y, %H:%M:%S")
-3. Today is 5 December, 2019. Change this time string to time.
-4. Calculate the time difference between now and new year.
-5. Calculate the time difference between 1 January 1970 and now.
-6. Think, what can you use the datetime module for? Examples:
-   - Time series analysis
-   - To get a timestamp of any activities in an application
-   - Adding posts on a blog 
+1. 从 datetime 模块获取当前的天、月、年、小时、分钟和时间戳（timestamp）。
+2. 使用以下格式格式化当前日期："%m/%d/%Y, %H:%M:%S"
+3. 今天是 2019 年 12 月 5 日。将这个时间字符串转换为时间对象。
+4. 计算当前时间与新年之间的时间差。
+5. 计算 1970 年 1 月 1 日与现在之间的时间差。
+6. 思考一下，datetime 模块可以用来做什么？示例：
+   - 时间序列分析（Time series analysis）
+   - 获取应用中任何活动的时间戳
+   - 在博客上添加文章
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 恭喜（CONGRATULATIONS）！🎉
 
-[<< Day 15](../15_Day_Python_type_errors/15_python_type_errors.md) | [Day 17 >>](../17_Day_Exception_handling/17_exception_handling.md)
+[<< 第 15 天](../15_Day_Python_type_errors/15_python_type_errors_Python类型错误.md) | [第 17 天 >>](../17_Day_Exception_handling/17_exception_handling_异常处理.md)
