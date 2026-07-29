@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 🐍 30 Days Of Python：第 17 天 - 异常处理（Exception Handling）</h1>
+  <h1> 🐍 30 Days Of Python：第 17 天 - 异常处理、打包解包、展开、枚举与压缩</h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -20,7 +20,7 @@
 
 - [📘 第 17 天](#-第-17-天)
   - [异常处理](#异常处理)
-  - [在 Python 中打包和解包参数](#在-python-中打包和解包参数)
+  - [在 Python 中打包和解包参数](#在python中打包和解包参数)
     - [解包](#解包)
       - [解包列表](#解包列表)
       - [解包字典](#解包字典)
@@ -142,7 +142,7 @@ except Exception as e:
 
 ```
 
-## 在 Python 中打包和解包参数
+## 在Python中打包和解包参数
 
 我们使用两个运算符（operator）：
 
