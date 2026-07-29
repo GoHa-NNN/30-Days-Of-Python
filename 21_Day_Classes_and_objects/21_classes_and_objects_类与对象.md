@@ -283,7 +283,7 @@ Lidiya Teklemariam is 28 years old. He lives in Espoo, Finland.
 我们没有在子类中调用 **__init__**() 构造函数。如果我们没有调用它，我们仍然可以从父类访问所有属性。但如果我们调用了构造函数，我们可以通过调用 _super_ 来访问父类属性。
 我们可以向子类添加新方法，也可以通过创建与父类同名的方法来重写（override）父类的方法。当我们添加 **__init__**() 函数时，子类将不再继承父类的 **__init__**() 函数。
 
-### 重写父类方法
+### 重写父类方法（多态）
 
 ```py
 class Student(Person):
@@ -316,7 +316,70 @@ Lidiya Teklemariam is 28 years old. She lives in Espoo, Finland.
 ['Organizing', 'Marketing', 'Digital Marketing']
 ```
 
-我们可以使用 super() 内置函数或父类名称 Person 来自动从父类继承方法和属性。在上面的示例中，我们重写了父类方法。子类方法有不同的功能，它可以识别性别是男性还是女性，并分配适当的代词（He/She）。
+我们可以使用 super() 内置函数或父类名称 Person 来自动从父类继承方法和属性。在上面的示例中，我们重写了父类方法。子类方法有不同的功能，它可以识别性别是男性还是女性，并分配适当的代词（He/She），这体现了面向对象中多态这一性质。
+
+### 类对象
+类本身作为一个特殊对象，拥有：类属性、类方法
+
+```python
+class Demo:
+	# 类属性
+	name = "类属性名"
+	
+	# 类方法
+	@classmethod
+	def 类方法名(cls): # 与self相似，cls记录类地址
+		cls.name = "张三"
+
+# 调用
+Demo.类方法名
+```
+
+### 私有属性和私有方法
+
+```python
+class Traitor:
+    def __init__(self, name):
+        self.__name = name
+        
+    def __antiPRC(self):
+        print("***")
+    
+    def a(self):
+        print (self.__name)
+        self.__antiPRC()
+
+teacherLi = Traitor("李老师")
+print(teacherLi.__name) # 代码报错
+teacherLi.__antiPRC() # 代码报错
+teracherLi.a()
+
+# 查看对象的所有可用方法（私有的不在其中但是有重命名的实现，防君子不防小人）
+print(dir(teacherLi))
+# ['_Traitor__antiPRC', '_Traitor__name', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'a']
+
+```
+
+### 类的方法间的变量的作用域
+```python
+class A:
+    def __init__(self):
+        pass
+
+    def m1(self):
+        self.v1 = 10
+        v2=20
+
+    def m2(self):
+        # v1带self，他的作用域是当前类，v2没有带self，作用域是当前方法
+        print(self.v1)
+        # print(v2) 不能运行
+
+if __name__ == '__main__':
+    a = A()
+    a.m1()
+    a.m2()
+```
 
 🌕 现在，你已充满编程的超能力。现在为你的大脑和肌肉做一些练习吧。
 
