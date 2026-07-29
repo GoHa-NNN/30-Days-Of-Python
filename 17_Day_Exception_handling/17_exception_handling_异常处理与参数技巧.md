@@ -142,6 +142,63 @@ except Exception as e:
 
 ```
 
+## Assert 断言
+
+Python 提供了 _assert_ 关键字（keyword），用于在代码中插入调试断言（assertion）。当断言条件为假时，程序会抛出 `AssertionError` 异常（exception），这是一种轻量级的"前置条件检查"手段。
+
+```py
+assert condition, error_message
+```
+
+**示例（Example）：**
+
+```py
+def divide(a, b):
+    assert b != 0, "除数不能为零"
+    return a / b
+
+print(divide(10, 2))  # 5.0
+print(divide(10, 0))  # AssertionError: 除数不能为零
+```
+
+### assert 与 if + raise 的区别
+
+_assert_ 和手动 `if ... raise AssertionError` 效果类似，但更简洁。此外，assert 可以通过 Python 的 `-O`（优化）选项全局禁用，因此**仅应用于调试阶段的契约检查，不应用于运行时输入校验**。
+
+**示例（Example）：**
+
+```py
+# ✅ 正确用法：检查程序内部逻辑（调试用）
+def calculate_discount(price, discount):
+    result = price * (1 - discount)
+    assert 0 <= result <= price, "计算结果超出合理范围"
+    return result
+
+# ❌ 错误用法：校验用户输入（因为可能被 -O 禁用）
+def set_age(age):
+    assert age > 0, "年龄必须为正数"  # 不要用 assert 做输入校验！
+    return age
+```
+
+### 常见使用场景
+
+- 函数前置条件检查（参数类型、取值范围）
+- 算法中间结果的合理性验证
+- 单元测试中的简单断言（配合 `unittest` 或 pytest）
+
+```py
+# 检查列表非空后再处理
+def get_first_item(items):
+    assert len(items) > 0, "列表不能为空"
+    return items[0]
+
+# 检查函数返回值类型
+def process(data):
+    result = sorted(data)
+    assert isinstance(result, list), "返回值必须是列表类型"
+    return result
+```
+
 ## 在Python中打包和解包参数
 
 我们使用两个运算符（operator）：

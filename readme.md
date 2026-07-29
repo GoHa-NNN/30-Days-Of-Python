@@ -18,7 +18,7 @@
 | 14  |  [高阶函数](./14_Day_Higher_order_functions/14_higher_order_functions_高阶函数.md)|
 | 15  |  [Python 类型错误](./15_Day_Python_type_errors/15_python_type_errors_Python类型错误.md)|
 | 16 |  [Python 日期时间](./16_Day_Python_date_time/16_python_datetime_Python日期时间.md) |
-| 17 |  [异常处理、打包解包、展开、枚举与压缩](./17_Day_Exception_handling/17_exception_handling_异常处理_打包解包_展开_枚举_压缩.md)|
+| 17 |  [异常处理与参数技巧](./17_Day_Exception_handling/17_exception_handling_异常处理与参数技巧.md)|
 | 18 |  [正则表达式](./18_Day_Regular_expressions/18_regular_expressions_正则表达式.md)|
 | 19 |  [文件处理](./19_Day_File_handling/19_file_handling_文件处理.md)|
 | 20 |  [Python 包管理器](./20_Day_Python_package_manager/20_python_package_manager_Python包管理器.md)|
