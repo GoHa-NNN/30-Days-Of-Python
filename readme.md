@@ -3,35 +3,35 @@
 |# Day | Topics                                                    |
 |------|:---------------------------------------------------------:|
 | 01  |  [简介](./readme.md)|
-| 02  |  [变量与内置函数](./02_Day_Variables_builtin_functions/02_variables_builtin_functions_变量与内置函数.md)|
-| 03  |  [运算符](./03_Day_Operators/03_operators_运算符.md)|
-| 04  |  [字符串](./04_Day_Strings/04_strings_字符串.md)|
-| 05  |  [列表](./05_Day_Lists/05_lists_列表.md)|
-| 06  |  [元组](./06_Day_Tuples/06_tuples_元组.md)|
-| 07  |  [集合](./07_Day_Sets/07_sets_集合.md)|
-| 08  |  [字典](./08_Day_Dictionaries/08_dictionaries_字典.md)|
-| 09  |  [条件语句](./09_Day_Conditionals/09_conditionals_条件语句.md)|
-| 10  |  [循环](./10_Day_Loops/10_loops_循环.md)|
-| 11  |  [函数](./11_Day_Functions/11_functions_函数.md)|
-| 12  |  [模块](./12_Day_Modules/12_modules_模块.md)|
-| 13  |  [列表推导式](./13_Day_List_comprehension/13_list_comprehension_列表推导式.md)|
-| 14  |  [高阶函数](./14_Day_Higher_order_functions/14_higher_order_functions_高阶函数.md)|
-| 15  |  [Python 类型错误](./15_Day_Python_type_errors/15_python_type_errors_Python类型错误.md)|
-| 16 |  [Python 日期时间](./16_Day_Python_date_time/16_python_datetime_Python日期时间.md) |
-| 17 |  [异常处理与参数技巧](./17_Day_Exception_handling/17_exception_handling_异常处理与参数技巧.md)|
-| 18 |  [正则表达式](./18_Day_Regular_expressions/18_regular_expressions_正则表达式.md)|
-| 19 |  [文件处理](./19_Day_File_handling/19_file_handling_文件处理.md)|
-| 20 |  [Python 包管理器](./20_Day_Python_package_manager/20_python_package_manager_Python包管理器.md)|
-| 21 |  [类与对象](./21_Day_Classes_and_objects/21_classes_and_objects_类与对象.md)|
-| 22 |  [网络爬虫](./22_Day_Web_scraping/22_web_scraping_网络爬虫.md)|
-| 23 |  [虚拟环境](./23_Day_Virtual_environment/23_virtual_environment_虚拟环境.md)|
-| 24 |  [统计学](./24_Day_Statistics/24_statistics_统计学.md)|
-| 25 |  [Pandas](./25_Day_Pandas/25_pandas_Pandas.md)|
-| 26 |  [Python Web 开发](./26_Day_Python_web/26_python_web_Python_Web开发.md)|
-| 27 |  [Python 与 MongoDB](./27_Day_Python_with_mongodb/27_python_with_mongodb_Python与MongoDB.md)|
-| 28 |  [API](./28_Day_API/28_API_API.md)|
-| 29 |  [构建 API](./29_Day_Building_API/29_building_API_构建API.md)|
-| 30 |  [总结](./30_Day_Conclusions/30_conclusions_总结.md)|
+| 02  |  [变量与内置函数](./02_Day_Variables_builtin_functions_变量与内置函数/02_variables_builtin_functions_变量与内置函数.md)|
+| 03  |  [运算符](./03_Day_Operators_运算符/03_operators_运算符.md)|
+| 04  |  [字符串](./04_Day_Strings_字符串/04_strings_字符串.md)|
+| 05  |  [列表](./05_Day_Lists_列表/05_lists_列表.md)|
+| 06  |  [元组](./06_Day_Tuples_元组/06_tuples_元组.md)|
+| 07  |  [集合](./07_Day_Sets_集合/07_sets_集合.md)|
+| 08  |  [字典](./08_Day_Dictionaries_字典/08_dictionaries_字典.md)|
+| 09  |  [条件语句](./09_Day_Conditionals_条件语句/09_conditionals_条件语句.md)|
+| 10  |  [循环](./10_Day_Loops_循环/10_loops_循环.md)|
+| 11  |  [函数](./11_Day_Functions_函数/11_functions_函数.md)|
+| 12  |  [模块](./12_Day_Modules_模块/12_modules_模块.md)|
+| 13  |  [列表推导式](./13_Day_List_comprehension_列表推导式/13_list_comprehension_列表推导式.md)|
+| 14  |  [高阶函数](./14_Day_Higher_order_functions_高阶函数/14_higher_order_functions_高阶函数.md)|
+| 15  |  [Python 类型错误](./15_Day_Python_type_errors_类型错误/15_python_type_errors_Python类型错误.md)|
+| 16 |  [Python 日期时间](./16_Day_Python_date_time_日期时间/16_python_datetime_Python日期时间.md) |
+| 17 |  [异常处理与参数技巧](./17_Day_Exception_handling_异常处理与参数技巧/17_exception_handling_异常处理与参数技巧.md)|
+| 18 |  [正则表达式](./18_Day_Regular_expressions_正则表达式/18_regular_expressions_正则表达式.md)|
+| 19 |  [文件处理](./19_Day_File_handling_文件处理/19_file_handling_文件处理.md)|
+| 20 |  [Python 包管理器](./20_Day_Python_package_manager_包管理器/20_python_package_manager_Python包管理器.md)|
+| 21 |  [类与对象](./21_Day_Classes_and_objects_类与对象/21_classes_and_objects_类与对象.md)|
+| 22 |  [网络爬虫](./22_Day_Web_scraping_网络爬虫/22_web_scraping_网络爬虫.md)|
+| 23 |  [虚拟环境](./23_Day_Virtual_environment_虚拟环境/23_virtual_environment_虚拟环境.md)|
+| 24 |  [统计学](./24_Day_Statistics_统计学/24_statistics_统计学.md)|
+| 25 |  [Pandas](./25_Day_Pandas_Pandas/25_pandas_Pandas.md)|
+| 26 |  [Python Web 开发](./26_Day_Python_web_Web开发/26_python_web_Python_Web开发.md)|
+| 27 |  [Python 与 MongoDB](./27_Day_Python_with_mongodb_与MongoDB/27_python_with_mongodb_Python与MongoDB.md)|
+| 28 |  [API](./28_Day_API_API/28_API_API.md)|
+| 29 |  [构建 API](./29_Day_Building_API_构建API/29_building_API_构建API.md)|
+| 30 |  [总结](./30_Day_Conclusions_总结/30_conclusions_总结.md)|
 
 
 <small>🧡🧡🧡 HAPPY CODING 🧡🧡🧡</small>
@@ -124,7 +124,7 @@
 🇧🇷 [Portuguese](./Portuguese/README.md)
 🇨🇳 [中文](./Chinese/README.md)
 🇫🇷[French](./French/README_fr.md)
-[第 2 天 >>](./02_Day_Variables_builtin_functions/02_variables_builtin_functions_变量与内置函数.md)
+[第 2 天 >>](./02_Day_Variables_builtin_functions_变量与内置函数/02_variables_builtin_functions_变量与内置函数.md)
 
 ![30DaysOfPython](./images/30DaysOfPython_banner3@2x.png)
 
@@ -523,4 +523,4 @@ print(type((9.8, 3.14, 2.7)))    # 元组（Tuple）
 
 🎉 恭喜！🎉
 
-[第 2 天 >>](./02_Day_Variables_builtin_functions/02_variables_builtin_functions_变量与内置函数.md)
+[第 2 天 >>](./02_Day_Variables_builtin_functions_变量与内置函数/02_variables_builtin_functions_变量与内置函数.md)
